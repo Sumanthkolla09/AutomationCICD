@@ -25,7 +25,6 @@ import java.util.Properties;
 public class BaseTest {
     public WebDriver driver;
     public Landingpage landingpage;
-    public WebDriver test;
 
     public WebDriver InitializeBrower() throws IOException {
         Properties properties = new Properties();
@@ -49,7 +48,7 @@ public class BaseTest {
         } else if (browsername.equalsIgnoreCase("edge")) {
             //Firefox
         }
-        //driver.manage().window().maximize();
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         return driver;
     }
@@ -79,8 +78,8 @@ public class BaseTest {
 
     @BeforeMethod(alwaysRun = true)
     public Landingpage LaunchApplication() throws IOException {
-        test = InitializeBrower();
-        landingpage = new Landingpage(test);
+        driver = InitializeBrower();
+        landingpage = new Landingpage(driver);
         landingpage.GotoUrl();
         return landingpage;
     }
@@ -88,6 +87,6 @@ public class BaseTest {
     @AfterMethod(alwaysRun = true)
     public void Closebrowser() throws InterruptedException {
         Thread.sleep(2000);
-        //driver.close();
+        driver.close();
     }
 }

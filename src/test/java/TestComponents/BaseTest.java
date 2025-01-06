@@ -25,6 +25,7 @@ import java.util.Properties;
 public class BaseTest {
     public WebDriver driver;
     public Landingpage landingpage;
+    public WebDriver test;
 
     public WebDriver InitializeBrower() throws IOException {
         Properties properties = new Properties();
@@ -78,8 +79,8 @@ public class BaseTest {
 
     @BeforeMethod(alwaysRun = true)
     public Landingpage LaunchApplication() throws IOException {
-        driver = InitializeBrower();
-        landingpage = new Landingpage(driver);
+        test = InitializeBrower();
+        landingpage = new Landingpage(test);
         landingpage.GotoUrl();
         return landingpage;
     }

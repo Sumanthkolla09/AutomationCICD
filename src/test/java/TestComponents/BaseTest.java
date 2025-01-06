@@ -87,6 +87,6 @@ public class BaseTest {
     @AfterMethod(alwaysRun = true)
     public void Closebrowser() throws InterruptedException {
         Thread.sleep(2000);
-        driver.close();
+        //driver.close();
     }
 }

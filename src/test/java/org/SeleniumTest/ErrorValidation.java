@@ -15,8 +15,8 @@ public class ErrorValidation extends BaseTest {
         String email = "sumanth@test.com";
         String pwd = "Demo@123";
         landingpage.loginnApplication(email,pwd);
-        Assert.assertEquals("Incorrect email  password.", landingpage.GetErrorMessage());
-
+        Assert.assertEquals("Incorrect email or password.", landingpage.GetErrorMessage());
+//
 
     }
 

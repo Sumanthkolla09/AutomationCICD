@@ -48,7 +48,7 @@ public class BaseTest {
         } else if (browsername.equalsIgnoreCase("edge")) {
             //Firefox
         }
-        //driver.manage().window().maximize();
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         return driver;
     }
@@ -78,7 +78,7 @@ public class BaseTest {
 
     @BeforeMethod(alwaysRun = true)
     public Landingpage LaunchApplication() throws IOException {
-        //driver = InitializeBrower();
+        driver = InitializeBrower();
         landingpage = new Landingpage(driver);
         landingpage.GotoUrl();
         return landingpage;
